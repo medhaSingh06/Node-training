@@ -1,0 +1,32 @@
+const maxAr=[];
+            let  maxRoute = null;
+            for(const trainNo in jsonArray)
+              { 
+                const trainArray = jsonArray[trainNo];
+                const distances = trainArray.map( (obj) => parseFloat(obj.Distance));
+                // console.log("distanceeeeeeeee",distances)
+                const maxDistance = Math.max(...distances)
+                // console.log("maxxxxxxx distance",maxDistance)
+                maxAr.push(maxDistance)
+                
+              }
+              // console.log(maxAr)
+            const ascendingSorted = maxAr.slice().sort((a, b) => a - b);
+            // console.log(ascendingSorted)
+            const overallMax = ascendingSorted[ascendingSorted.length-1]
+            // console.log("overall max is:", ascendingSorted[ascendingSorted.length-1])
+            // console.log(overallMax)
+            // maxRoute = trainArray.find((data) => parseFloat(data.Distance) === overallMax)
+            // console.log(maxRoute)
+
+            let trainInfo = null;
+            for(const trainNo in jsonArray)
+            {
+              // console.log(overallMax)
+              const trainArray = jsonArray[trainNo];
+              // console.log(trainArray)
+              trainInfo =trainArray.find((obj) => obj.Distance === overallMax)
+              
+              // console.log(trainInfo)
+            }
+            console.log(trainInfo)
