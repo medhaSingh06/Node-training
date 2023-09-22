@@ -1,10 +1,10 @@
 const express = require('express');
-const asyncRouteHandler = require('../util/asyncRouteHandler');
+// const asyncRouteHandler = require('../util/asyncRouteHandler');
 const {addFriend, getFriend} = require('../controller/friend')
 const router = express.Router()
 
-router.post('/add', asyncRouteHandler(addFriend))
-router.get('/:id', asyncRouteHandler(getFriend))
+router.post('/add', addFriend)
+router.get('/:id', getFriend)
 
 
 module.exports = router

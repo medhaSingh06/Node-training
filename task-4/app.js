@@ -1,6 +1,6 @@
 const express = require('express');
 const connectDb = require('./util/database');
-const errorHandler  = require('./util/errorHandler');
+// const errorHandler  = require('./util/errorHandler');
 const userRouter = require('./router/user');
 const friendRouter = require('./router/friend');
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:false}))
 
 app.use('/user', userRouter )
 app.use('/friend', friendRouter)
-app.use(errorHandler)
+// app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server started at port: ${PORT}`))
 
